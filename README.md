@@ -63,8 +63,8 @@ Una interfaz de administración moderna y completa para gestionar cursos, usuari
 
 1. **Clonar el repositorio**
    ```bash
-   git clone <repository-url>
-   cd learning-platform-admin
+   git clone https://github.com/CamiloPinzon/learning-admin.git
+   cd learning-admin
    ```
 
 2. **Instalar dependencias**
