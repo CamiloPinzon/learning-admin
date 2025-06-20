@@ -88,10 +88,10 @@
     }
 
     .chartWrapper {
-        height: 200px;
+        height: auto;
     }
 
     .chartsRow .chartWrapper {
-        height: 160px;
+        height: auto;
     }
 }
