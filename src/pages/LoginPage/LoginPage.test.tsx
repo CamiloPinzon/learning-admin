@@ -6,7 +6,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import LoginPage from "./LoginPage";
 import authReducer from "@/store/slices/authSlice";
 
-// Mock the auth service
 jest.mock("@/services/authService", () => ({
 	authService: {
 		login: jest.fn(),

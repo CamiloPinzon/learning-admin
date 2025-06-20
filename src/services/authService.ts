@@ -15,7 +15,6 @@ interface LoginResponse {
 	token: string;
 }
 
-// Mock users for authentication
 const mockUsers = [
 	{
 		id: "1",

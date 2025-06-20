@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import {
@@ -10,7 +10,7 @@ import {
 import UserModal from "../../components/UserModal/UserModal";
 import styles from "./UsersPage.module.css";
 
-const UsersPage: React.FC = () => {
+const UsersPage = () => {
 	const dispatch = useDispatch();
 	const { filteredUsers, searchTerm, selectedUser, loading } = useSelector(
 		(state: RootState) => state.users

@@ -1,11 +1,10 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import StatsCards from "../../components/StatsCards/StatsCards";
 import ChartsSection from "../../components/ChartsSection/ChartsSection";
 import styles from "./DashboardPage.module.css";
 
-const DashboardPage: React.FC = () => {
+const DashboardPage = () => {
 	const { stats, loading } = useSelector((state: RootState) => state.dashboard);
 
 	if (loading) {
