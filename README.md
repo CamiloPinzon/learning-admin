@@ -2,9 +2,9 @@
 
 Una interfaz de administración moderna y completa para gestionar cursos, usuarios y estadísticas de una plataforma de aprendizaje en línea.
 
-## 🚀 Características
+## Características
 
-### ✅ Funcionalidades Implementadas
+### Funcionalidades Implementadas
 
 - **Autenticación Simulada**
   - Sistema de login con credenciales mock
@@ -42,7 +42,7 @@ Una interfaz de administración moderna y completa para gestionar cursos, usuari
   - Navegación por teclado
   - Indicadores de estado para lectores de pantalla
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **Frontend Framework**: React 18 con TypeScript
 - **Enrutamiento**: React Router v6
@@ -53,7 +53,7 @@ Una interfaz de administración moderna y completa para gestionar cursos, usuari
 - **Build Tool**: Vite
 - **Linting**: ESLint
 
-## 📦 Instalación y Configuración
+## Instalación y Configuración
 
 ### Prerrequisitos
 - Node.js 16+ 
@@ -82,7 +82,7 @@ Una interfaz de administración moderna y completa para gestionar cursos, usuari
    http://localhost:5173
    ```
 
-## 🔐 Credenciales de Acceso
+## Credenciales de Acceso
 
 ### Administrador
 - **Email**: admin@plataforma.com
@@ -92,7 +92,7 @@ Una interfaz de administración moderna y completa para gestionar cursos, usuari
 - **Email**: instructor@plataforma.com
 - **Contraseña**: instructor123
 
-## 🧪 Testing
+## Testing
 
 Ejecutar todas las pruebas:
 ```bash
@@ -109,7 +109,7 @@ npm run test:watch
 - **CourseModal**: Validación de formularios y funcionalidad CRUD
 - **LoginPage**: Autenticación y validación de campos
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 src/
@@ -134,7 +134,7 @@ src/
 └── App.tsx             # Componente raíz
 ```
 
-## 🎨 Decisiones Técnicas
+## Decisiones Técnicas
 
 ### Arquitectura y Organización
 - **Separación por capas**: Componentes, servicios, estilos y estado claramente separados
@@ -154,7 +154,7 @@ src/
 - **Paginación**: Para manejar grandes conjuntos de datos
 - **Optimización de bundle**: Vite para builds rápidos
 
-## 🚧 Mejoras Futuras
+## Mejoras Futuras
 
 ### Funcionalidades Pendientes
 - [ ] **Autenticación Real**: Integración con backend y JWT
@@ -179,19 +179,11 @@ src/
 - [ ] **Keyboard Shortcuts**: Atajos de teclado para power users
 - [ ] **Onboarding**: Tour guiado para nuevos usuarios
 
-## 📊 Métricas de Calidad
+## Métricas de Calidad
 
 - **Cobertura de Tests**: 3 componentes principales testeados
 - **Accesibilidad**: Roles ARIA, navegación por teclado
 - **Performance**: Lazy loading, optimización de renders
 - **Mantenibilidad**: Código modular, TypeScript, documentación
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
 
 ---

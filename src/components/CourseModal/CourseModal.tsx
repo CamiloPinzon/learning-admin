@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Course } from "../../store/slices/coursesSlice";
 import styles from "./CourseModal.module.css";
 
@@ -8,11 +8,7 @@ interface CourseModalProps {
 	onClose: () => void;
 }
 
-const CourseModal: React.FC<CourseModalProps> = ({
-	course,
-	onSave,
-	onClose,
-}) => {
+const CourseModal = ({ course, onSave, onClose }: CourseModalProps) => {
 	const [formData, setFormData] = useState({
 		title: "",
 		description: "",
@@ -46,21 +42,16 @@ const CourseModal: React.FC<CourseModalProps> = ({
 	const validateForm = () => {
 		const newErrors: Record<string, string> = {};
 
-		if (!formData.title.trim()) {
-			newErrors.title = "El título es requerido";
-		}
+		if (!formData.title.trim()) newErrors.title = "El título es requerido";
 
-		if (!formData.description.trim()) {
+		if (!formData.description.trim())
 			newErrors.description = "La descripción es requerida";
-		}
 
-		if (!formData.instructor.trim()) {
+		if (!formData.instructor.trim())
 			newErrors.instructor = "El instructor es requerido";
-		}
 
-		if (formData.duration <= 0) {
+		if (formData.duration <= 0)
 			newErrors.duration = "La duración debe ser mayor a 0";
-		}
 
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
@@ -69,9 +60,7 @@ const CourseModal: React.FC<CourseModalProps> = ({
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		if (validateForm()) {
-			onSave(formData);
-		}
+		if (validateForm()) onSave(formData);
 	};
 
 	const handleInputChange = (
@@ -95,9 +84,7 @@ const CourseModal: React.FC<CourseModalProps> = ({
 	};
 
 	const handleOverlayClick = (e: React.MouseEvent) => {
-		if (e.target === e.currentTarget) {
-			onClose();
-		}
+		if (e.target === e.currentTarget) onClose();
 	};
 
 	return (

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./StatsCards.module.css";
 
 interface StatsCardsProps {
@@ -10,7 +9,7 @@ interface StatsCardsProps {
 	};
 }
 
-const StatsCards: React.FC<StatsCardsProps> = ({ stats }) => {
+const StatsCards = ({ stats }: StatsCardsProps) => {
 	const cards = [
 		{
 			title: "Total Cursos",

@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react/jsx-runtime";
 import styles from "./Pagination.module.css";
 
 interface PaginationProps {
@@ -7,11 +7,11 @@ interface PaginationProps {
 	onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+const Pagination = ({
 	currentPage,
 	totalPages,
 	onPageChange,
-}) => {
+}: PaginationProps) => {
 	const getVisiblePages = () => {
 		const delta = 2;
 		const range = [];
@@ -63,7 +63,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
 			<div className={styles.pageNumbers}>
 				{visiblePages.map((page, index) => (
-					<React.Fragment key={index}>
+					<Fragment key={index}>
 						{page === "..." ? (
 							<span className={styles.dots} aria-hidden="true">
 								...
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
 								{page}
 							</button>
 						)}
-					</React.Fragment>
+					</Fragment>
 				))}
 			</div>
 

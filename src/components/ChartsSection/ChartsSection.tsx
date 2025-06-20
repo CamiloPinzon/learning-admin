@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import {
@@ -19,7 +18,7 @@ import styles from "./ChartsSection.module.css";
 
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
-const ChartsSection: React.FC = () => {
+const ChartsSection = () => {
 	const { enrollmentsByMonth, usersByRole, coursesByStatus } = useSelector(
 		(state: RootState) => state.dashboard
 	);

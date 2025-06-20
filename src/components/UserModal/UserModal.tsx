@@ -1,4 +1,3 @@
-import React from "react";
 import { User } from "../../store/slices/usersSlice";
 import styles from "./UserModal.module.css";
 
@@ -7,7 +6,7 @@ interface UserModalProps {
 	onClose: () => void;
 }
 
-const UserModal: React.FC<UserModalProps> = ({ user, onClose }) => {
+const UserModal = ({ user, onClose }: UserModalProps) => {
 	const handleOverlayClick = (e: React.MouseEvent) => {
 		if (e.target === e.currentTarget) {
 			onClose();
