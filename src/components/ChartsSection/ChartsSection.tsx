@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import {
@@ -19,6 +20,18 @@ import styles from "./ChartsSection.module.css";
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
 const ChartsSection = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 425);
+		};
+
+		handleResize();
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	const { enrollmentsByMonth, usersByRole, coursesByStatus } = useSelector(
 		(state: RootState) => state.dashboard
 	);
@@ -72,7 +85,9 @@ const ChartsSection = () => {
 									cy="50%"
 									labelLine={false}
 									label={({ name, percent }) =>
-										`${name} ${(percent * 100).toFixed(0)}%`
+										!isMobile
+											? `${name} ${(percent * 100).toFixed(0)}%`
+											: `${name.slice(0, 3)} ${(percent * 100).toFixed(0)}%`
 									}
 									outerRadius={80}
 									fill="#8884d8"

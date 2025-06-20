@@ -224,11 +224,11 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .headerContent {
         flex-direction: column;
         gap: 0.5rem;
-        align-items: flex-start;
+        align-items: flex-end;
     }
 
     .header {
@@ -243,5 +243,54 @@
     .logoutButton {
         padding: 0.25rem 0.5rem;
         font-size: 11px;
+    }
+}
+
+/* Botón hamburguesa */
+.burgerButton {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    width: 30px;
+    height: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burgerButton span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mostrar solo en móvil */
+@media (max-width: 768px) {
+    .burgerButton {
+        display: flex;
+    }
+
+    .sidebarHeader {
+        padding: 3rem 1rem 1.5rem 1rem;
+    }
+
+    /* Animación para convertir hamburguesa en X */
+    .burgerOpen span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burgerOpen span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burgerOpen span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { RootState } from "../../store/store";
@@ -14,9 +15,16 @@ const Layout = ({ children }: LayoutProps) => {
 	const location = useLocation();
 	const user = useSelector((state: RootState) => state.auth.user);
 
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 	const handleLogout = () => {
 		dispatch(logout());
 		navigate("/login");
+	};
+
+	const handleNavigate = (path: string) => {
+		navigate(path);
+		setIsMenuOpen(false); // colapsar menú en mobile
 	};
 
 	const navigationItems = [
@@ -27,8 +35,21 @@ const Layout = ({ children }: LayoutProps) => {
 
 	return (
 		<div className={styles.layout}>
+			{/* Botón hamburguesa visible solo en mobile */}
+			<button
+				className={`${styles.burgerButton} ${
+					isMenuOpen ? styles.burgerOpen : ""
+				}`}
+				onClick={() => setIsMenuOpen(!isMenuOpen)}
+				aria-label="Abrir menú"
+			>
+				<span />
+				<span />
+				<span />
+			</button>
+
 			<aside
-				className={styles.sidebar}
+				className={`${styles.sidebar} ${isMenuOpen ? styles.open : ""}`}
 				role="navigation"
 				aria-label="Navegación principal"
 			>
@@ -47,7 +68,7 @@ const Layout = ({ children }: LayoutProps) => {
 									className={`${styles.navItem} ${
 										location.pathname === item.path ? styles.navItemActive : ""
 									}`}
-									onClick={() => navigate(item.path)}
+									onClick={() => handleNavigate(item.path)}
 									aria-current={
 										location.pathname === item.path ? "page" : undefined
 									}
