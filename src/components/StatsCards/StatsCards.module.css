@@ -1,0 +1,111 @@
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: white;
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #e8e8e8;
+    transition: all 0.15s ease;
+}
+
+.statCard:hover {
+    border-color: #ddd;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.cardIcon {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    flex-shrink: 0;
+}
+
+.cardInfo {
+    flex: 1;
+}
+
+.cardTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin: 0 0 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cardDescription {
+    font-size: 11px;
+    color: #999;
+    margin: 0;
+}
+
+.cardValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+}
+
+@media (min-width: 1400px) {
+    .statsGrid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .statCard {
+        padding: 0.75rem;
+    }
+
+    .cardHeader {
+        gap: 0.5rem;
+    }
+
+    .cardIcon {
+        font-size: 16px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .cardValue {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cardHeader {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .cardValue {
+        font-size: 22px;
+    }
+}

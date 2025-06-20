@@ -1,0 +1,313 @@
+.usersPage {
+    width: 100%;
+}
+
+.pageHeader {
+    margin-bottom: 1.5rem;
+}
+
+.pageHeader h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 0.25rem 0;
+}
+
+.pageHeader p {
+    color: #666;
+    font-size: 13px;
+    margin: 0;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: 0.75rem;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f0f0f0;
+    border-top: 2px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading p {
+    color: #666;
+    font-size: 13px;
+}
+
+.usersContainer {
+    background: white;
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #e8e8e8;
+}
+
+.searchSection {
+    margin-bottom: 1.5rem;
+}
+
+.searchBox {
+    position: relative;
+    max-width: 320px;
+    margin-bottom: 0.75rem;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.5rem 0.75rem 0.5rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: border-color 0.15s ease;
+    background-color: white;
+}
+
+.searchInput:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 12px;
+}
+
+.resultsCount {
+    font-size: 11px;
+    color: #666;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.emptyIcon {
+    font-size: 48px;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+}
+
+.emptyState h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 0.25rem 0;
+}
+
+.emptyState p {
+    color: #666;
+    margin: 0;
+    font-size: 13px;
+}
+
+.usersTable {
+    overflow-x: auto;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.userAvatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.userName {
+    font-weight: 500;
+    color: #000;
+    font-size: 12px;
+}
+
+.userEmail {
+    font-size: 10px;
+    color: #666;
+}
+
+.roleBadge {
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.roleAdmin {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.roleInstructor {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.roleStudent {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.coursesCount {
+    font-size: 12px;
+    color: #333;
+}
+
+.statusBadge {
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.statusBadge.active {
+    background-color: #e8f5e8;
+    color: #2d5a2d;
+}
+
+.statusBadge.active:hover {
+    background-color: #d4edda;
+}
+
+.statusBadge.inactive {
+    background-color: #ffeaea;
+    color: #cc0000;
+}
+
+.statusBadge.inactive:hover {
+    background-color: #f8d7da;
+}
+
+.joinDate {
+    font-size: 11px;
+    color: #666;
+}
+
+.viewButton {
+    padding: 0.25rem 0.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.viewButton:hover {
+    background-color: #333;
+}
+
+@media (min-width: 1400px) {
+    .searchBox {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .usersTable {
+        font-size: 11px;
+    }
+
+    .userAvatar {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .userName {
+        font-size: 11px;
+    }
+
+    .userEmail {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pageHeader h1 {
+        font-size: 18px;
+    }
+
+    .usersContainer {
+        padding: 0.75rem;
+    }
+
+    .searchBox {
+        max-width: 100%;
+    }
+
+    .usersTable {
+        font-size: 10px;
+    }
+
+    .userInfo {
+        gap: 0.375rem;
+    }
+
+    .userAvatar {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .roleBadge,
+    .statusBadge {
+        padding: 0.1rem 0.25rem;
+        font-size: 8px;
+    }
+
+    .viewButton {
+        padding: 0.1875rem 0.375rem;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 480px) {
+    .usersTable table {
+        min-width: 600px;
+    }
+
+    .emptyState {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .emptyIcon {
+        font-size: 36px;
+    }
+}
