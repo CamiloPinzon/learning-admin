@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import {
@@ -12,17 +12,26 @@ import CourseModal from "../../components/CourseModal/CourseModal";
 import Pagination from "../../components/Pagination/Pagination";
 import styles from "./CoursesPage.module.css";
 
-const CoursesPage: React.FC = () => {
+const CoursesPage = () => {
 	const dispatch = useDispatch();
-	const { courses, currentPage, totalPages, itemsPerPage, loading } =
-		useSelector((state: RootState) => state.courses);
+	const { courses, currentPage, itemsPerPage, loading } = useSelector(
+		(state: RootState) => state.courses
+	);
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [editingCourse, setEditingCourse] = useState<Course | null>(null);
 
-	const startIndex = (currentPage - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	const currentCourses = courses.slice(startIndex, endIndex);
+	const { currentCourses, totalPages } = useMemo(() => {
+		const startIndex = (currentPage - 1) * itemsPerPage;
+		const endIndex = startIndex + itemsPerPage;
+		const paginatedCourses = courses.slice(startIndex, endIndex);
+		const calculatedTotalPages = Math.ceil(courses.length / itemsPerPage);
+
+		return {
+			currentCourses: paginatedCourses,
+			totalPages: calculatedTotalPages,
+		};
+	}, [courses, currentPage, itemsPerPage]);
 
 	const handleAddCourse = () => {
 		setEditingCourse(null);
@@ -37,6 +46,13 @@ const CoursesPage: React.FC = () => {
 	const handleDeleteCourse = (courseId: string) => {
 		if (window.confirm("¿Estás seguro de que quieres eliminar este curso?")) {
 			dispatch(deleteCourse(courseId));
+
+			const newTotalCourses = courses.length - 1;
+			const newTotalPages = Math.ceil(newTotalCourses / itemsPerPage);
+
+			if (currentPage > newTotalPages && newTotalPages > 0) {
+				dispatch(setCurrentPage(newTotalPages));
+			}
 		}
 	};
 
@@ -58,7 +74,9 @@ const CoursesPage: React.FC = () => {
 	};
 
 	const handlePageChange = (page: number) => {
-		dispatch(setCurrentPage(page));
+		if (page >= 1 && page <= totalPages) {
+			dispatch(setCurrentPage(page));
+		}
 	};
 
 	if (loading) {
@@ -91,7 +109,7 @@ const CoursesPage: React.FC = () => {
 			</div>
 
 			<div className={styles.coursesContainer}>
-				{currentCourses.length === 0 ? (
+				{courses.length === 0 ? (
 					<div className={styles.emptyState}>
 						<div className={styles.emptyIcon}>📚</div>
 						<h3>No hay cursos disponibles</h3>

@@ -18,13 +18,14 @@ import {
 import styles from "./ChartsSection.module.css";
 
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
+const MOBILE_BREAKPOINT = 425;
 
 const ChartsSection = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsMobile(window.innerWidth <= 425);
+			setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
 		};
 
 		handleResize();
