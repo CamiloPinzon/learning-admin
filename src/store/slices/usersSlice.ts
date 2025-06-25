@@ -135,7 +135,7 @@ const usersSlice = createSlice({
 			if (user) {
 				user.status = action.payload.status;
 			}
-			// Update filtered users as well
+			
 			const filteredUser = state.filteredUsers.find(
 				(u) => u.id === action.payload.id
 			);
