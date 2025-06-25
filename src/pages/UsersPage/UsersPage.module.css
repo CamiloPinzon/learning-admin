@@ -1,5 +1,7 @@
 .usersPage {
     width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .pageHeader {
@@ -119,17 +121,18 @@
 }
 
 .usersTable {
-    width: 100%;
+    display: block;
+    max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 .usersTable table {
     width: 100%;
+    min-width: 425px;
     border-collapse: collapse;
 }
 
-/* Móvil: forzar scroll si la tabla es muy ancha */
 @media (max-width: 768px) {
     .usersTable {
         overflow-x: auto;
